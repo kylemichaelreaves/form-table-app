@@ -1,6 +1,19 @@
 import React from 'react';
 import './App.css';
 
+interface Person {
+  id: number;
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  birthYear: string;
+  birthMonth: number | string;
+  birthDay: number;
+  birthTown: string;
+  birthCounty: string;
+  birthState: string;
+}
+
 function App() {
   const [id, setId] = React.useState<number>(0);
   const [firstName, setFirstName] = React.useState<string>('')
@@ -15,7 +28,7 @@ function App() {
   const [people, setPeople] = React.useState<any[]>([])
   
   const renderHeader = () => {
-    let headerElems = ['id',
+    let columns = ['id',
                       'firstName',
                       'middleName',
                       'lastName',
@@ -25,22 +38,22 @@ function App() {
                       'birthTown',
                       'birthCounty',
                       'birthState']
-    return headerElems.map((key, index) => {
-      return <th key={index}>{key.toUpperCase()}</th>
+      return columns.map((col: string, index: number) => {
+        return <th key={index}>{col.toUpperCase()}</th>
     });
   }
   const renderBody = () => {
-    return people && people.map(({
-      id,
-      firstName,
-      middleName,
-      lastName,
-      birthYear,
-      birthMonth,
-      birthDay,
-      birthTown,
-      birthCounty,
-      birthState
+    return people.map(({
+        id,
+        firstName,
+        middleName,
+        lastName,
+        birthYear,
+        birthMonth,
+        birthDay,
+        birthTown,
+        birthCounty,
+        birthState
     }) => {
       return (
         <tr key={id}>
@@ -55,8 +68,8 @@ function App() {
           <td>{birthCounty}</td>
           <td>{birthState}</td>
         </tr>
-      )
-    })
+      );
+    });
   }
  
   const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -129,6 +142,23 @@ function App() {
         
        
       </header>
+
+    <table id="people">
+      <thead>
+        <tr>{renderHeader()}</tr>
+      </thead>
+      <tbody>
+        {renderBody()}
+      </tbody>
+    </table>
+
+    <form onSubmit={onSubmit}>
+      <input
+        value={firstName}
+        onChange={handleFirstNameChange}
+      />
+    </form>
+
     </div>
   );
 }
