@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import {states} from './states';
+import { states } from './states';
 import getCounties from './getCounties';
+
 
 function App() {
   const [id, setId] = React.useState<number>(0);
@@ -17,11 +18,12 @@ function App() {
   const [people, setPeople] = React.useState<any[]>([])
 
   const renderHeader = () => {
-    let columns = ['id',
+    let columns = [
+      'id',
       'firstName',
       'middleName',
       'lastName',
-      'fullName',
+      
       'birthYear',
       'birthMonth',
       'birthDay',
@@ -38,7 +40,7 @@ function App() {
       firstName,
       middleName,
       lastName,
-      fullName,
+      
       birthYear,
       birthMonth,
       birthDay,
@@ -52,7 +54,7 @@ function App() {
           <td>{firstName}</td>
           <td>{middleName}</td>
           <td>{lastName}</td>
-          <td>{fullName}</td>
+          
           <td>{birthYear}</td>
           <td>{birthMonth}</td>
           <td>{birthDay}</td>
@@ -132,89 +134,88 @@ function App() {
 
       <form onSubmit={onSubmit}>
         <div>
-          <label htmlFor='firstName'>first name</label>
-        <input
-          required
-          value={firstName}
-          placeholder='first name'
-          id='firstName'
-          name='firstName'
-          onChange={handleFirstNameChange}
-        />
-        <label htmlFor='firstName'>middle name</label>
-        <input
-          value={middleName}
-          placeholder='middle name'
-          onChange={handleMiddleNameChange}
-        />
-        <label htmlFor='lastName'>last name</label>
-        <input
-          required
-          value={lastName}
-          placeholder="last name"
-          onChange={handleLastNameChange}
+          
+          <input
+            required
+            value={firstName}
+            placeholder='first name'
+            id='firstName'
+            name='firstName'
+            onChange={handleFirstNameChange}
+          />
+         
+          <input
+            value={middleName}
+            placeholder='middle name'
+            onChange={handleMiddleNameChange}
+          />
+         
+          <input
+            required
+            value={lastName}
+            placeholder="last name"
+            onChange={handleLastNameChange}
           /></div>
-          <div>
-      
 
-        <label htmlFor="birthDay">day of birth</label>
-        <input
-          name="birthDay"
-          id="birthDay"
-          type='number'
-          min='1'
-          max='31'
-          onChange={handleBirthDayChange}
+        <div>
+          <label htmlFor="birthDay">day of birth</label>
+          <input
+            name="birthDay"
+            id="birthDay"
+            type='number'
+            min='1'
+            max='31'
+            onChange={handleBirthDayChange}
           // value={birthDay}
           />
-        <label htmlFor='birthMonth'>month of birth</label>
-        <input 
-          name='birthMonth'
-          id='birthMonth'
-          min='1'
-          max='12'
-          // value={birthMonth}
-          onChange={handleBirthMonthChange}
+          <label htmlFor='birthMonth'>month of birth</label>
+          <input
+            name='birthMonth'
+            id='birthMonth'
+            min='1'
+            max='12'
+            // value={birthMonth}
+            onChange={handleBirthMonthChange}
           />
-        <label htmlFor='birthYear'>year of birth</label>
-        <input
-          name='birthYear'  
-          id='birthYear'
-          type='number'
-          value={birthYear}
-          onChange={handleBirthYearChange}
-        />
+          <label htmlFor='birthYear'>year of birth</label>
+          <input
+            name='birthYear'
+            id='birthYear'
+            type='number'
+            value={birthYear}
+            onChange={handleBirthYearChange}
+          />
         </div>
         <div>
-          <label>town or city of birth</label>
-        <input 
-          value={birthTown}
-          placeholder='town or city of birth'
-          onChange={handleBirthTownChange}
-          />
-          <label>county of birth</label>
-        <select 
-          value={birthCounty}
-          placeholder='county of birth'
-          onChange={handleBirthCountyChange}>
-            {getCounties(birthState)}
-        </select>
-        <label>state of birth</label>
-        <select
-          value={birthState}
-          placeholder='state of birth'
-          onChange={handleBirthStateChange}>
+          <label>state of birth</label>
+          <select
+            value={birthState}
+            placeholder='state of birth'
+            onChange={handleBirthStateChange}>
             {states.map(state =>
-            <option key={state} value={state}>
-              {state}
+              <option key={state} value={state}>
+                {state}
               </option>
             )}
           </select>
-          
-          </div>
-          <button>
-            submit
-          </button>
+          <label>county of birth</label>
+          <select
+            value={birthCounty}
+            placeholder='county of birth'
+            onChange={handleBirthCountyChange}>
+            {getCounties(birthState)}
+          </select>
+          <label>town or city of birth</label>
+          <input
+            value={birthTown}
+            placeholder='town or city of birth'
+            onChange={handleBirthTownChange}
+          />
+
+        </div>
+
+        <button>submit</button>
+
       </form>
 
     </div>
