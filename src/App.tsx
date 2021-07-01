@@ -3,7 +3,6 @@ import './App.css';
 import { states } from './states';
 import getCounties from './getCounties';
 
-
 function App() {
   const [id, setId] = React.useState<number>(0);
   const [firstName, setFirstName] = React.useState<string>('')
@@ -12,9 +11,9 @@ function App() {
   const [birthYear, setBirthYear] = React.useState<number>(0)
   const [birthMonth, setBirthMonth] = React.useState<number | string>(0)
   const [birthDay, setBirthDay] = React.useState<number>(0)
-  const [birthTown, setBirthTown] = React.useState<string>('')
-  const [birthCounty, setBirthCounty] = React.useState<string>('')
   const [birthState, setBirthState] = React.useState<string>('')
+  const [birthCounty, setBirthCounty] = React.useState<string>('')
+  const [birthTown, setBirthTown] = React.useState<string>('')
   const [people, setPeople] = React.useState<any[]>([])
 
   const renderHeader = () => {
@@ -23,16 +22,20 @@ function App() {
       'firstName',
       'middleName',
       'lastName',
-      
       'birthYear',
       'birthMonth',
       'birthDay',
-      'birthTown',
+      'birthState',
       'birthCounty',
-      'birthState']
-    return columns.map((col: string, index: number) => {
-      return <th key={index}>{col.toUpperCase()}</th>
+      'birthTown'
+    ]
+    if (people.length === 0) {
+      return <h2>add people to the array to view table</h2>
+    } else if (people.length > 0) {     
+      return columns.map((col: string, index: number) => {
+        return <th key={index}>{col.toUpperCase()}</th>
     });
+  }
   }
   const renderBody = () => {
     return people.map(({
@@ -40,13 +43,13 @@ function App() {
       firstName,
       middleName,
       lastName,
-      
       birthYear,
       birthMonth,
       birthDay,
       birthTown,
       birthCounty,
       birthState
+      
     }) => {
       return (
         <tr key={id}>
@@ -54,7 +57,6 @@ function App() {
           <td>{firstName}</td>
           <td>{middleName}</td>
           <td>{lastName}</td>
-          
           <td>{birthYear}</td>
           <td>{birthMonth}</td>
           <td>{birthDay}</td>
@@ -65,6 +67,7 @@ function App() {
       );
     });
   }
+          
 
   const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFirstName(e.target.value);
