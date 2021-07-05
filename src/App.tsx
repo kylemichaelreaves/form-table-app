@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { states } from './states';
 import getCounties from './getCounties';
+import { Person, People, Name, Date, Place } from './Person';
 
 function App() {
   const [id, setId] = React.useState<number>(0);
@@ -30,12 +31,12 @@ function App() {
       'birthTown'
     ]
     if (people.length === 0) {
-      return <h2>add people to the array to view table</h2>
-    } else if (people.length > 0) {     
+      return <h3>add people to the array to view table</h3>
+    } else if (people.length > 0) {
       return columns.map((col: string, index: number) => {
         return <th key={index}>{col.toUpperCase()}</th>
-    });
-  }
+      });
+    }
   }
   const renderBody = () => {
     return people.map(({
@@ -49,7 +50,6 @@ function App() {
       birthTown,
       birthCounty,
       birthState
-      
     }) => {
       return (
         <tr key={id}>
@@ -67,7 +67,6 @@ function App() {
       );
     });
   }
-          
 
   const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFirstName(e.target.value);
@@ -137,7 +136,7 @@ function App() {
 
       <form onSubmit={onSubmit}>
         <div>
-          
+
           <input
             required
             value={firstName}
@@ -146,13 +145,13 @@ function App() {
             name='firstName'
             onChange={handleFirstNameChange}
           />
-         
+
           <input
             value={middleName}
             placeholder='middle name'
             onChange={handleMiddleNameChange}
           />
-         
+
           <input
             required
             value={lastName}
