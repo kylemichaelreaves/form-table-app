@@ -5,9 +5,9 @@ export interface Place {
 }
 
 export interface Date {
-  year: number;
-  month: number | string;
   day: number;
+  month: number | string;
+  year: number;
 }
 
 export interface Name {
@@ -18,12 +18,17 @@ export interface Name {
 
 export interface Person {
   id: number;
-  name: Name;
-  birthdate: Date;
-  birthplace: Place;
-  people: Person[];
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  birthYear: number;
+  birthMonth: number;
+  birthDay: number;
+  birthState: string;
+  birthCounty: string;
+  birthTown: string;
 }
 
-export interface People {
+export interface People extends Person {
   people: Person[]
 }

@@ -1,6 +1,6 @@
 .App {
-  text-align: center;
-  align-items: center;
+  text-align: left;
+  align-items: left;
   
 }
 
@@ -20,6 +20,15 @@
   color: #61dafb;
 }
 
+label {
+  padding: 1em;
+}
+h1 {
+  padding: 10px;
+}
+h3 {
+  padding: 1em;
+}
 
 input {
   display: block;
