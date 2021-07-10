@@ -22,13 +22,13 @@ export interface Person {
   middleName?: string;
   lastName: string;
   birthYear: number;
-  birthMonth: number;
+  birthMonth: number | string;
   birthDay: number;
   birthState: string;
   birthCounty: string;
   birthTown: string;
 }
 
-export interface People extends Person {
+export interface People {
   people: Person[]
 }

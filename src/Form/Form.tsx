@@ -3,13 +3,13 @@ import { Person } from '../Person';
 import getCounties from '../getCounties';
 import { states } from '../states';
 
-const blankPerson: Person = {
+let blankPerson: Person = {
     id: 0,
     firstName: '',
     middleName: '',
     lastName: '',
     birthYear: 0,
-    birthMonth: 0,
+    birthMonth: '',
     birthDay: 0,
     birthState: '',
     birthCounty: '',
@@ -17,14 +17,15 @@ const blankPerson: Person = {
 }
 
 interface Props {
-    onSave: (person: Person) => void
+    onSave: (person: Person) => void;
 }
+
 
 export function Form({ onSave }: Props) {
     const [person, setPerson] = React.useState(blankPerson);
 
     return <>
-        <form>
+        
             <div>
                 <input
                     required
@@ -64,9 +65,7 @@ export function Form({ onSave }: Props) {
                     value={person.birthMonth}
                     name='birthMonth'
                     id='birthMonth'
-                    min='1'
-                    max='12'
-                    onChange={e => setPerson({ ...person, birthMonth: e.target.valueAsNumber })}
+                    onChange={e => setPerson({ ...person, birthMonth: e.target.value })}
                 />
                 <label htmlFor='birthYear'>year of birth</label>
                 <input
@@ -77,6 +76,7 @@ export function Form({ onSave }: Props) {
                     onChange={e => setPerson({ ...person, birthYear: e.target.valueAsNumber })}
                 />
             </div>
+
             <div>
                 <label>state of birth</label>
                 <select
@@ -103,8 +103,8 @@ export function Form({ onSave }: Props) {
                     onChange={e => setPerson({ ...person, birthTown: e.target.value })}
                 />
             </div>
-            <button onClick={() => onSave(person)}>Save Person</button>
-        </form>
-
+            <button onClick={() => [onSave(person), blankPerson.id + 1, setPerson(blankPerson)]}>Save Person</button>
+        
     </>
+
 }
