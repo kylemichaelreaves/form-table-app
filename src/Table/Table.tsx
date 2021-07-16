@@ -31,6 +31,7 @@ export function Table({ people }: Props) {
     const renderBody = () => {
         return people.map((person) => {
             return (
+                // nested state variables are accessed just as they were set in Form
                 <tr key={person.id}>
                     <td>{person.id}</td>
                     <td>{person.firstName}</td>

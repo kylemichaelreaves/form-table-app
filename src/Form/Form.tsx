@@ -3,6 +3,7 @@ import { Person } from '../Person';
 import getCounties from '../getCounties';
 import { states } from '../states';
 
+// creating an initial 'blank' state for the useState hook
 let blankPerson: Person = {
     id: 0,
     firstName: '',
@@ -17,11 +18,14 @@ let blankPerson: Person = {
 }
 
 interface Props {
+    // casting the type onto a function which will set state
     onSave: (person: Person) => void;
 }
 
 
 export function Form({ onSave }: Props) {
+    // since the props were specified earlier
+    //  we can use a single hook to manage many variables
     const [person, setPerson] = React.useState(blankPerson);
 
     return <>
@@ -50,7 +54,7 @@ export function Form({ onSave }: Props) {
                 />
             </div>
             <div>
-                <label htmlFor="birthDay">day of birth</label>
+                <label>day of birth</label>
                 <input
                     value={person.birthDay}
                     name="birthDay"
@@ -60,14 +64,14 @@ export function Form({ onSave }: Props) {
                     max='31'
                     onChange={e => setPerson({ ...person, birthDay: e.target.valueAsNumber })}
                 />
-                <label htmlFor='birthMonth'>month of birth</label>
+                <label>month of birth</label>
                 <input
                     value={person.birthMonth}
                     name='birthMonth'
                     id='birthMonth'
                     onChange={e => setPerson({ ...person, birthMonth: e.target.value })}
                 />
-                <label htmlFor='birthYear'>year of birth</label>
+                <label>year of birth</label>
                 <input
                     name='birthYear'
                     id='birthYear'
@@ -103,6 +107,7 @@ export function Form({ onSave }: Props) {
                     onChange={e => setPerson({ ...person, birthTown: e.target.value })}
                 />
             </div>
+            {/* setting the person, incrementing the intial id to generate unique ids, resetting to initial state */}
             <button onClick={() => [onSave(person), blankPerson.id + 1, setPerson(blankPerson)]}>Save Person</button>
         
     </>
