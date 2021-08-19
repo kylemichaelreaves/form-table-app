@@ -40,9 +40,9 @@ export function Table({ people }: Props) {
                     <td>{person.birthDay}</td>
                     <td>{person.birthMonth}</td>
                     <td>{person.birthYear}</td>
-                    <td>{person.birthTown}</td>
-                    <td>{person.birthCounty}</td>
                     <td>{person.birthState}</td>
+                    <td>{person.birthCounty}</td>
+                    <td>{person.birthTown}</td>
                 </tr>
             )
         })
