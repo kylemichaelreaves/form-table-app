@@ -15,8 +15,7 @@ function App() {
   return (
     <div className="App">
       <h1><code>Kyle's Genealogy Thing</code></h1>
-      {/* the 'people' state managed in App 
-      is passed to the Table to populate it */}
+      {/* the 'people' state managed in App  is passed to the Table to populate it */}
       <Table people={people} />
       {/* a state setter is passed to the Form */}
       <Form onSave={addPerson} />
