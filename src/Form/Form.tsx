@@ -22,8 +22,7 @@ interface Props {
     onSave: (person: Person) => void;
 }
 
-
-export function Form({ onSave }: Props) {
+export default function Form({ onSave }: Props) {
     // since the props were specified earlier
     //  we can use a single hook to manage many variables
     const [person, setPerson] = React.useState(blankPerson);
