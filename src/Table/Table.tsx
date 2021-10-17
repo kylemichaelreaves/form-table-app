@@ -20,14 +20,17 @@ export function Table({ people }: Props) {
             'birthCounty',
             'birthTown'
         ]
+        // if there aren't any people, return this string
         if (people.length === 0) {
             return <th>{`add people to the array`}</th>
+            // else if there are people, iterate over this array of People
+            // and turn it into table column headers
         } else if (people.length > 0) {
         return columns.map((col: string, index: number) => {
             return <th key={index}>{col.toUpperCase()}</th>
             });
         }}
-    
+
     const renderBody = () => {
         return people.map((person) => {
             return (
