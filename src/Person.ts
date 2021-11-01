@@ -10,6 +10,11 @@ export interface Date {
   year: number;
 }
 
+interface Event {
+  date: Date;
+  place: Place
+}
+
 export interface Name {
   first: string;
   middle?: string;
@@ -27,6 +32,13 @@ export interface Person {
   birthState: string;
   birthCounty: string;
   birthTown: string;
+}
+
+export interface PersonInterface {
+  id: number;
+  name: Name;
+  born: Event;
+  died?: Event;
 }
 
 export interface People {
