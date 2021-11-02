@@ -26,9 +26,9 @@ export interface Person {
   firstName: string;
   middleName?: string;
   lastName: string;
-  birthYear: number;
-  birthMonth: number | string;
-  birthDay: number;
+  birthYear: string;
+  birthMonth: string;
+  birthDay: string;
   birthState: string;
   birthCounty: string;
   birthTown: string;
