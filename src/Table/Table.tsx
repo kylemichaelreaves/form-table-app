@@ -22,7 +22,7 @@ export function Table({ people }: Props) {
         ]
         // if there aren't any people, return this string
         if (people.length === 0) {
-            return <th>{`add people to the array`}</th>
+            return <th>{`Save a person to generate a table`}</th>
             // else if there are people, iterate over this array of People
             // and turn it into table column headers
         } else if (people.length > 0) {
