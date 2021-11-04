@@ -1,11 +1,12 @@
 import React from 'react';
 import { Person } from '../Person';
+import Table from 'react-bootstrap/Table'
 
 interface Props {
     people: Person[];
 }
 
-export function Table({ people }: Props) {
+export function TableComponent({ people }: Props) {
 
     const renderHeader = () => {
         let columns = [
@@ -52,13 +53,13 @@ export function Table({ people }: Props) {
     }
 
     return (
-        <table id="people">
+        <Table id="people">
             <thead>
                 <tr>{renderHeader()}</tr>
             </thead>
             <tbody>
                 {renderBody()}
             </tbody>
-        </table>
+        </Table>
     )
 }
