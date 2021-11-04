@@ -7,7 +7,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { FormSelect } from 'react-bootstrap/';
 
 // creating an initial 'blank' state for the useState hook
 let blankPerson: Person = {
@@ -115,8 +114,10 @@ export function FormComponent({ onSave }: Props) {
         incrementing the intial id to generate unique ids,
         and resetting to initial state */}
 
-
-        <button onClick={() => [onSave(person), blankPerson.id + 1, setPerson(blankPerson)]}>Save Person</button>
+        <Button size="lg"
+            onClick={() => [onSave(person),
+            blankPerson.id++,
+            setPerson(blankPerson)]}>Save Person</Button>{' '}
     </>
 
 }
