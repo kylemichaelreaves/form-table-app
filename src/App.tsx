@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import { Person } from './Person';
 import { FormComponent } from './Form/Form';
-import { Table } from './Table/Table';
+import { TableComponent } from './Table/Table';
+import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -14,13 +15,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <Container className="App">
       <h1><code>Kyle's Genealogy Thing</code></h1>
       {/* the 'people' state managed in App  is passed to the Table to populate it */}
-      <Table people={people} />
+      <TableComponent people={people} />
       {/* a state setter is passed to the Form */}
       <FormComponent onSave={addPerson} />
-    </div>
+    </Container>
   )
 }
 
