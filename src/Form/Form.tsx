@@ -22,12 +22,12 @@ let blankPerson: Person = {
     birthTown: ''
 }
 
-interface Props {
+interface FormComponentProps {
     // casting the type onto a function which will set state
     onSave: (person: Person) => void;
 }
 
-export function FormComponent({ onSave }: Props) {
+export function FormComponent({ onSave }: FormComponentProps) {
     // since the props were specified earlier
     //  we can use a single hook to manage many variables
     const [person, setPerson] = React.useState(blankPerson);
@@ -115,9 +115,11 @@ export function FormComponent({ onSave }: Props) {
         and resetting to initial state */}
 
         <Button size="lg"
-            onClick={() => [onSave(person),
-            blankPerson.id++,
-            setPerson(blankPerson)]}>Save Person</Button>{' '}
+            onClick={() =>
+                [onSave(person),
+                blankPerson.id++,
+                setPerson(blankPerson)]}>Save Person
+        </Button>{' '}
     </>
 
 }
