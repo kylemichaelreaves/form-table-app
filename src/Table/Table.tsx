@@ -9,6 +9,7 @@ interface Props {
 export function TableComponent({ people }: Props) {
 
     const renderHeader = () => {
+
         let columns = [
             'id',
             'firstName',
@@ -21,7 +22,7 @@ export function TableComponent({ people }: Props) {
             'birthCounty',
             'birthTown'
         ]
-        // if there aren't any people, return this string
+        // if there aren't any people, return this string between table header <th> tags
         if (people.length === 0) {
             return <th>{`Save a person to generate a table`}</th>
             // else if there are people, iterate over this array of People
