@@ -22,7 +22,7 @@ let blankPerson: Person = {
     birthTown: ''
 }
 
-interface FormComponentProps {
+export interface FormComponentProps {
     // casting the type onto a function which will set state
     onSave: (person: Person) => void;
 }
