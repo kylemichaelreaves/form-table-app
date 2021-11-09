@@ -4,14 +4,14 @@ export interface Place {
   town: string;
 }
 
-export interface Date {
+export interface DateInterface {
   day: number;
   month: number | string;
   year: number;
 }
 
 interface Event {
-  date: Date;
+  date: DateInterface;
   place: Place
 }
 
