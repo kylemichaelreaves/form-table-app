@@ -34,10 +34,10 @@ export function TableComponent({ people }: Props) {
         }}
 
     const renderBody = () => {
-        return people.map((person) => {
+        return people.map((person: Person, index: number) => {
             return (
                 // state variables are accessed just as they were set in Form
-                <tr key={person.id}>
+                <tr key={index}>
                     <td>{person.id}</td>
                     <td>{person.firstName}</td>
                     <td>{person.middleName}</td>
