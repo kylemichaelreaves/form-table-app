@@ -23,6 +23,8 @@ describe('FormComponent', () => {
     }
 
     xtest('FormComponents props exists', (props) => {
+        // expect props tp be in the document?
+        // FC is sending
         render(< FormComponent onSave={props} />)
 
     })
@@ -31,9 +33,20 @@ describe('FormComponent', () => {
 
     })
 
+    xtest('the submit button is in the document', (props) => {
+        const onSave = jest.fn();
+        // render(<FormComponent onSave={props} />)
+        render(<FormComponent onSave={props} />)
+
+        // expect(screen.getByRole('Save')).toBeInTheDocument()
+        // screen.debug()
+
+    })
+
     xtest('FormComponent render with testing-library', (props) => {
         const onSave = jest.fn();
         render(<FormComponent onSave={props} />)
+
 
     })
 }
